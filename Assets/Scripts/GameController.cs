@@ -65,7 +65,7 @@ public class GameController : MonoBehaviour {
             currPipesIndex = (currPipesIndex + 1) % PIPESTOTAL;
         }
 
-        if (isGameOver && Input.GetKeyDown(KeyCode.Space)) {
+        if (isGameOver && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))) {
             GameRestart();
         }
     }

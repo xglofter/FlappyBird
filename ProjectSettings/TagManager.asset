@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 4093917483
     locked: 0
+  - name: Pipes
+    uniqueID: 889303645
+    locked: 0
   - name: Foreground
     uniqueID: 3681222089
     locked: 0
