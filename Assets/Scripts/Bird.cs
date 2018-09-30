@@ -6,20 +6,10 @@ public class Bird : MonoBehaviour {
 
     public float upBounce = 300;
 
-    private Animator anim;
     private Rigidbody2D rb2D;
 
     private void Awake() {
         rb2D = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-    }
-
-    private void Update() {
-        if (GameController.instance.isGameOver) return;
-
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) {
-            Fly();
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
@@ -28,9 +18,15 @@ public class Bird : MonoBehaviour {
         Die();
     }
 
-    private void Fly() {
-        anim.SetTrigger("Fly");
+    public void SetFree() {
+        rb2D.bodyType = RigidbodyType2D.Static;
+    }
 
+    public void SetControl() {
+        rb2D.bodyType = RigidbodyType2D.Dynamic;
+    }
+
+    public void Fly() { 
         rb2D.velocity = Vector2.zero;
 
         Vector2 upForce = Vector2.up * upBounce;
@@ -40,8 +36,6 @@ public class Bird : MonoBehaviour {
     }
 
     private void Die() {
-        anim.SetTrigger("Die");
-
         rb2D.velocity = Vector2.zero;
 
         GameController.instance.GameOver();

@@ -13,9 +13,9 @@ public class MovingGround : MonoBehaviour {
         rb2D.velocity = new Vector2(-speed, 0);
 	}
 
-    void Update() {
-        if (GameController.instance.isGameOver) { 
-            rb2D.velocity = Vector2.zero;
-        }
-    }
+    //void Update() {
+    //    if (GameController.instance.isGameOver) { 
+    //        rb2D.velocity = Vector2.zero;
+    //    }
+    //}
 }
